@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+        }
+        button {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>File List</h1>
+    <ul>
+        <li><a href="1.c" download>p1.c</a> <button onclick="copyFileContent('1.c')">Copy</button></li>
+        <li><a href="2.c" download>p2.c</a> <button onclick="copyFileContent('2.c')">Copy</button></li>
+        <li><a href="3.c" download>p3.c</a> <button onclick="copyFileContent('3.c')">Copy</button></li>
+        <li><a href="4.c" download>p4.c</a> <button onclick="copyFileContent('4.c')">Copy</button></li>
+        <li><a href="5.c" download>p5.c</a> <button onclick="copyFileContent('5.c')">Copy</button></li>
+      <li><a href="des.java" download>des.java</a> <button onclick="copyFileContent('des.java')">Copy</button></li>
+      <li><a href="sha.java" download>sha.java</a> <button onclick="copyFileContent('sha.java')">Copy</button></li>
+      <li><a href="md5.java" download>md5.java</a> <button onclick="copyFileContent('md5.java')">Copy</button></li>
+      <li><a href="9.java" download>9.java</a> <button onclick="copyFileContent('9.java')">Copy</button></li>
+      <li><a href="10a.c" download>10a.c</a> <button onclick="copyFileContent('10a.c')">Copy</button></li>
+      <li><a href="10b.c" download>10b.c</a> <button onclick="copyFileContent('10b.c')">Copy</button></li>
+      <li><a href="11.c" download>11.c</a> <button onclick="copyFileContent('11.c')">Copy</button></li>
+      <li><a href="12.c" download>12.c</a> <button onclick="copyFileContent('12.c')">Copy</button></li>
+      <li><a href="Main.java" download>aes</a> <button onclick="copyFileContent('Main.java')">Copy</button></li>
+    </ul>
+    <script>
+        async function copyFileContent(fileName) {
+            try {
+                const response = await fetch(fileName);
+                const text = await response.text();
+                await navigator.clipboard.writeText(text);
+                alert('Copied to clipboard!');
+            } catch (error) {
+                alert('Copy failed: ' + error);
+            }
+        }
+    </script>
+</body>
+</html>
